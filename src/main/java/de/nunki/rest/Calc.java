@@ -13,11 +13,41 @@ public class Calc {
  
 	@POST
 	@Path("/add")
-	public Response getMsg(@FormParam("a") String as, @FormParam("b") String bs) {
+	public Response getMsgAdd(@FormParam("a") String as, @FormParam("b") String bs) {
 		int a = Integer.parseInt(as);
 		int b = Integer.parseInt(bs);
-		Integer result = new Integer (a+b); 
-		 
+		Integer result = new Integer (a+b);
+
+		return Response.status(200).entity(result.toString()).build();
+	}
+
+	@POST
+	@Path("/sub")
+	public Response getMsgSub(@FormParam("a") String as, @FormParam("b") String bs) {
+		int a = Integer.parseInt(as);
+		int b = Integer.parseInt(bs);
+		Integer result = new Integer (a-b);
+
+		return Response.status(200).entity(result.toString()).build();
+	}
+
+	@POST
+	@Path("/mul")
+	public Response getMsgMul(@FormParam("a") String as, @FormParam("b") String bs) {
+		int a = Integer.parseInt(as);
+		int b = Integer.parseInt(bs);
+		Integer result = new Integer (a*b);
+
+		return Response.status(200).entity(result.toString()).build();
+	}
+
+	@POST
+	@Path("/div")
+	public Response getMsgDiv(@FormParam("a") String as, @FormParam("b") String bs) {
+		int a = Integer.parseInt(as);
+		int b = Integer.parseInt(bs);
+		Integer result = new Integer (a/b);
+
 		return Response.status(200).entity(result.toString()).build();
 	}
 }
